@@ -1,0 +1,8 @@
+{
+  "name": "SistemaEscolarIonic",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
