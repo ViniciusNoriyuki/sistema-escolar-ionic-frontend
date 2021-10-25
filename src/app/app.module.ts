@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import { AlunoService } from '../services/Aluno.service';
+import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AlunoService } from '../services/Aluno.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthInterceptorProvider,
     AuthService,
     StorageService,
     AlunoService
