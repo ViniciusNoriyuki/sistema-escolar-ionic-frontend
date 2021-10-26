@@ -10,14 +10,25 @@
 <ion-content padding>
   <h2 text-center>Aluno: {{alunoComplete?.nome}}</h2>
 
-  <h3 text-center>Disciplinas atuais:</h3>
-  <ion-list *ngFor="let disciplina of alunoComplete?.disciplinas">
-    <p text-center>{{disciplina.id}} - {{disciplina.nome}}</p>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>Disciplinas atuais:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let disciplina of alunoComplete?.disciplinas">
+        <p text-center>{{disciplina.id}} - {{disciplina.nome}}</p>
+      </ion-list>  
+    </ion-card-content>
+    </ion-card>
   
-  <h3 text-center>Notas por disciplina:</h3>
-  <ion-list *ngFor="let nota of alunoComplete?.notas">
-    <p text-center>Nota: {{nota.valor}} - {{nota.disciplina.nome}}</p>
-  </ion-list>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>Notas por disciplina:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let nota of alunoComplete?.notas">
+        <p text-center>Nota: {{nota.valor}} - {{nota.disciplina.nome}}</p>
+      </ion-list>  
+    </ion-card-content>
+  </ion-card>
 </ion-content>

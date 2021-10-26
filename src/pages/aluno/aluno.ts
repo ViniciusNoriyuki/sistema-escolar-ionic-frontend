@@ -25,7 +25,5 @@ export class AlunoPage {
         }, 
         error => {});
     }
-    console.log('ionViewDidLoad AlunoPage');
   }
-
 }
