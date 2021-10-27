@@ -12,6 +12,7 @@ import { StorageService } from '../services/storage.service';
 import { AlunoService } from '../services/Aluno.service';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { ProfessorService } from '../services/professor.service';
+import { DisciplinaService } from '../services/disciplina.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProfessorService } from '../services/professor.service';
     AuthService,
     StorageService,
     AlunoService,
-    ProfessorService
+    ProfessorService,
+    DisciplinaService
   ]
 })
 export class AppModule {}

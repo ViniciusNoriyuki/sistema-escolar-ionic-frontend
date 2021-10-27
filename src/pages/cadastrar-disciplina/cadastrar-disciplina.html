@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastro de disciplina</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="singupDisciplina(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nome da disciplina*</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>
+   <button ion-button block type="submit" [disabled]="formGroup.invalid">Cadastrar disciplina</button>
+  </form>
+</ion-content>
