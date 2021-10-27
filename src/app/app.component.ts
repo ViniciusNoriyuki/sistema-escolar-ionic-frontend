@@ -13,6 +13,7 @@ export class MyApp {
   rootPage: string = 'HomePage';
 
   pages: Array<{title: string, component: string}>;
+  pagesProfessor: Array<{title: string, component: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth: AuthService) {
     this.initializeApp();
@@ -21,6 +22,11 @@ export class MyApp {
     this.pages = [
       { title: 'Principal', component: 'HomePage' },
       { title: 'Perfil', component: 'ProfilePage' },
+      { title: 'Sair', component: '' }
+    ];
+
+    this.pagesProfessor = [
+      { title: 'Principal', component: 'ProfessorPage' },
       { title: 'Sair', component: '' }
     ];
 

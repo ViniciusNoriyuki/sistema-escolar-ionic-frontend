@@ -5,10 +5,10 @@ import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-login-professor',
+  templateUrl: 'login-professor.html',
 })
-export class HomePage {
+export class LoginProfessorPage {
 
   creds : CredenciaisDTO = {
     email: "",
@@ -24,19 +24,19 @@ export class HomePage {
 
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
-    this.enableAuthenticatedMenu();
+    this.disableAuthenticatedMenu();  
   }
 
-  enableAuthenticatedMenu() {
-    this.menuCtrl.enable(true, 'authenticated');
-    this.menuCtrl.enable(false, 'unauthenticated');
+  disableAuthenticatedMenu() {
+    this.menuCtrl.enable(false, 'authenticated');
+    this.menuCtrl.enable(true, 'unauthenticated');
   }
 
   ionViewDidEnter() {
     this.auth.refreshToken()
       .subscribe(response => {
         this.auth.succesfullLogin(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('AlunoPage');
+        this.navCtrl.setRoot('ProfessorPage');
       },
       error => {})
   }
@@ -45,12 +45,12 @@ export class HomePage {
     this.auth.authenticate(this.creds)
       .subscribe(response => {
         this.auth.succesfullLogin(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('AlunoPage');
+        this.navCtrl.setRoot('ProfessorPage');
       },
       error => {})
   }
 
-  loginProfessorPage() {
-    this.navCtrl.setRoot('LoginProfessorPage')
+  voltar() {
+    this.navCtrl.setRoot("HomePage");
   }
 }
