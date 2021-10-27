@@ -32,6 +32,15 @@ export class LoginProfessorPage {
     this.menuCtrl.enable(true, 'unauthenticated');
   }
 
+  ionViewDidEnter() {
+    this.auth.refreshToken()
+      .subscribe(response => {
+        this.auth.succesfullLogin(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('ProfessorPage');
+      },
+      error => {})
+  }
+
   login() {
     this.auth.authenticate(this.creds)
       .subscribe(response => {
