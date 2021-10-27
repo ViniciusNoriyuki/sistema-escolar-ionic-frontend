@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController } from 'ionic-angular';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { AuthService } from '../../services/auth.service';
+import { ProfessorService } from '../../services/professor.service';
+import { StorageService } from '../../services/storage.service';
 
 @IonicPage()
 @Component({
@@ -15,7 +17,13 @@ export class LoginProfessorPage {
     senha: ""
   };
 
-  constructor(public navCtrl: NavController, public menu: MenuController, public auth: AuthService, public menuCtrl: MenuController) {
+  constructor(
+    public navCtrl: NavController, 
+    public menu: MenuController, 
+    public auth: AuthService, 
+    public menuCtrl: MenuController, 
+    public professorService: ProfessorService,
+    public storage: StorageService) {
   }
 
   ionViewWillEnter() {
@@ -36,7 +44,11 @@ export class LoginProfessorPage {
     this.auth.refreshToken()
       .subscribe(response => {
         this.auth.succesfullLogin(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('ProfessorPage');
+        this.professorService.findByEmail(this.storage.getLocalUser().email)
+        .subscribe(() => {
+          this.navCtrl.setRoot('ProfessorPage');
+        },
+        error => {})
       },
       error => {})
   }
@@ -45,7 +57,11 @@ export class LoginProfessorPage {
     this.auth.authenticate(this.creds)
       .subscribe(response => {
         this.auth.succesfullLogin(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('ProfessorPage');
+        this.professorService.findByEmail(this.creds.email)
+          .subscribe(() => {
+            this.navCtrl.setRoot('ProfessorPage');
+          },
+          error => {})
       },
       error => {})
   }

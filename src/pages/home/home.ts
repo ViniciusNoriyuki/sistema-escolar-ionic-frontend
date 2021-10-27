@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController } from 'ionic-angular';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
+import { AlunoService } from '../../services/Aluno.service';
 import { AuthService } from '../../services/auth.service';
+import { StorageService } from '../../services/storage.service';
 
 @IonicPage()
 @Component({
@@ -15,7 +17,13 @@ export class HomePage {
     senha: ""
   };
 
-  constructor(public navCtrl: NavController, public menu: MenuController, public auth: AuthService, public menuCtrl: MenuController) {
+  constructor(
+    public navCtrl: NavController, 
+    public menu: MenuController, 
+    public auth: AuthService, 
+    public menuCtrl: MenuController, 
+    public alunoService: AlunoService, 
+    public storage: StorageService) {
   }
 
   ionViewWillEnter() {
@@ -36,7 +44,11 @@ export class HomePage {
     this.auth.refreshToken()
       .subscribe(response => {
         this.auth.succesfullLogin(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('AlunoPage');
+        this.alunoService.findByEmail(this.storage.getLocalUser().email)
+        .subscribe(() => {
+          this.navCtrl.setRoot('AlunoPage');
+        },
+        error => {})
       },
       error => {})
   }
@@ -45,7 +57,11 @@ export class HomePage {
     this.auth.authenticate(this.creds)
       .subscribe(response => {
         this.auth.succesfullLogin(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('AlunoPage');
+        this.alunoService.findByEmail(this.creds.email)
+          .subscribe(() => {
+            this.navCtrl.setRoot('AlunoPage');
+          },
+          error => {})
       },
       error => {})
   }
