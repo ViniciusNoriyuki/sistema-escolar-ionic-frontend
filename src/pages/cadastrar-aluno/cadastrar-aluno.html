@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastro de aluno</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="singupAluno(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nome*</ion-label>
+      <ion-input name="nome" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Email*</ion-label>
+      <ion-input name="email" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Senha*</ion-label>
+      <ion-input name="senha" type="password"></ion-input>
+    </ion-item>
+    <button ion-button block type="submit">Cadastrar aluno</button>
+  </form>
+</ion-content>

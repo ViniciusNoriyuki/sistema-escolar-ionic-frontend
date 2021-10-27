@@ -27,6 +27,7 @@ export class MyApp {
 
     this.pagesProfessor = [
       { title: 'Principal', component: 'ProfessorPage' },
+      { title: 'Cadastrar aluno', component: 'CadastrarAlunoPage' },
       { title: 'Perfil', component: 'ProfileProfessorPage' },
       { title: 'Sair', component: '' }
     ];
