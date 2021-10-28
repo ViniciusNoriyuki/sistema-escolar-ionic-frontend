@@ -19,4 +19,8 @@ export class DisciplinaService {
     findAlunos(disciplinaId: string) : Observable<AlunoDTO[]> {
         return this.http.get<AlunoDTO[]>(`${API_CONFIG.baseUrl}/disciplinas/${disciplinaId}/alunos`);
     }
+    
+    findAll() : Observable<DisciplinaDTO[]> {
+        return this.http.get<DisciplinaDTO[]>(`${API_CONFIG.baseUrl}/disciplinas`);
+    }
 }

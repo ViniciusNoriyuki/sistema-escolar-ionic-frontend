@@ -15,6 +15,10 @@ export class ProfessorService {
         return this.http.get<ProfessorDTO>(`${API_CONFIG.baseUrl}/professores/email?value=${email}`);
     }
 
+    findAll() : Observable<ProfessorDTO[]> {
+        return this.http.get<ProfessorDTO[]>(`${API_CONFIG.baseUrl}/professores`);
+    }
+
     insert(obj: ProfessorDTO) {
         return this.http.post(`${API_CONFIG.baseUrl}/professores`, obj, {observe: 'response', responseType: 'text'});
     }

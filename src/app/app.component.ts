@@ -30,6 +30,7 @@ export class MyApp {
       { title: 'Cadastrar aluno', component: 'CadastrarAlunoPage' },
       { title: 'Cadastrar professor', component: 'CadastrarProfessorPage' },
       { title: 'Cadastrar disciplina', component: 'CadastrarDisciplinaPage' },
+      { title: 'Atribuir disciplina a professor', component: 'AtribuirDisciplinaProfessorPage' },
       { title: 'Perfil', component: 'ProfileProfessorPage' },
       { title: 'Sair', component: '' }
     ];
