@@ -7,7 +7,27 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-title>Página principal</ion-title>
 
+<ion-content padding>
+  <h2 text-center>Professor: {{professor?.nome}}</h2>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>Atualmente lecionando:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <p text-center>{{professor?.disciplina.nome}}</p>
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title text-center>Alunos na disciplina:</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngFor="let aluno of alunos">
+          <p text-center>Nome: {{aluno.nome}} <br> Email: {{aluno.email}}</p>
+        </ion-list>  
+      </ion-card-content>
+    </ion-card>
 </ion-content>
