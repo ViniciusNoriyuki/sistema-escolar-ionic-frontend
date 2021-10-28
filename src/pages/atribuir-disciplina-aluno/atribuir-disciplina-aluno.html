@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Atribuição de disciplina</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="atribuir(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Alunos*</ion-label>
+      <ion-select formControlName="alunoId">
+        <ion-option *ngFor="let aluno of alunos; first as f" [value]="aluno.id" [selected]="f">{{aluno.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Disciplinas*</ion-label>
+      <ion-select formControlName="disciplinaId">
+        <ion-option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{disciplina.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Atribuir disciplina</button>
+  </form>
+</ion-content>
+
+
