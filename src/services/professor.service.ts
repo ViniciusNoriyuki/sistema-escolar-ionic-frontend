@@ -14,4 +14,8 @@ export class ProfessorService {
     findByEmail(email: string) : Observable<ProfessorDTO> {
         return this.http.get<ProfessorDTO>(`${API_CONFIG.baseUrl}/professores/email?value=${email}`);
     }
+
+    insert(obj: ProfessorDTO) {
+        return this.http.post(`${API_CONFIG.baseUrl}/professores`, obj, {observe: 'response', responseType: 'text'});
+    }
 }

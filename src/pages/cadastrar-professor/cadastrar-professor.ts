@@ -1,31 +1,33 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DisciplinaService } from '../../services/disciplina.service';
+import { ProfessorService } from '../../services/professor.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-cadastrar-disciplina',
-  templateUrl: 'cadastrar-disciplina.html',
+  selector: 'page-cadastrar-professor',
+  templateUrl: 'cadastrar-professor.html',
 })
-export class CadastrarDisciplinaPage {
+export class CadastrarProfessorPage {
 
   formGroup: FormGroup;
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navParams: NavParams,
     public formBuilder: FormBuilder, 
-    public disciplinaService: DisciplinaService,
+    public professorService: ProfessorService,
     public alertCtrl: AlertController) {
     
     this.formGroup = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]]
+      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required]]
     }) 
   }
-  
-  signupDisciplina() {
-    this.disciplinaService.insert(this.formGroup.value)
+
+  signupProfessor() {
+    this.professorService.insert(this.formGroup.value)
       .subscribe(response => {
         this.showInsertOk();
       },
@@ -48,5 +50,4 @@ export class CadastrarDisciplinaPage {
     });
     alert.present();
   }
-
 }

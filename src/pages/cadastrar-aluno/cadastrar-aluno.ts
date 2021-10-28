@@ -26,7 +26,7 @@ export class CadastrarAlunoPage {
     }) 
   }
 
-  singupAluno() {
+  signupAluno() {
     this.alunoService.insert(this.formGroup.value)
       .subscribe(response => {
         this.showInsertOk();

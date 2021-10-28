@@ -3,12 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cadastro de aluno</ion-title>
+    <ion-title>Cadastro de professor</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="formGroup" (ngSubmit)="signupAluno(); $event.preventDefault()">
+  <form [formGroup]="formGroup" (ngSubmit)="signupProfessor(); $event.preventDefault()">
     <ion-item>
       <ion-label stacked>Nome*</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input>
@@ -24,6 +24,6 @@
       <ion-input formControlName="senha" type="password"></ion-input>
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.senha.dirty && formGroup.controls.senha.errors" margin-left>Valor inválido</p>
-   <button ion-button block type="submit" [disabled]="formGroup.invalid">Cadastrar aluno</button>
+   <button ion-button block type="submit" [disabled]="formGroup.invalid">Cadastrar professor</button>
   </form>
 </ion-content>
