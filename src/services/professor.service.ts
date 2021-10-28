@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { API_CONFIG } from "../config/api.config";
 import { ProfessorDTO } from "../models/professor.dto";
+import { ProfessorDisciplinaDTO } from "../models/professor_disciplina.dto";
 import { StorageService } from "./storage.service";
 
 @Injectable()
@@ -21,5 +22,9 @@ export class ProfessorService {
 
     insert(obj: ProfessorDTO) {
         return this.http.post(`${API_CONFIG.baseUrl}/professores`, obj, {observe: 'response', responseType: 'text'});
+    }
+
+    insertDisciplinaInProfessor(obj: ProfessorDisciplinaDTO) {
+        return this.http.post(`${API_CONFIG.baseUrl}/professores/disciplina`, obj, {observe: 'response', responseType: 'text'});
     }
 }
