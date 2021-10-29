@@ -14,6 +14,7 @@ import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { ProfessorService } from '../services/professor.service';
 import { DisciplinaService } from '../services/disciplina.service';
 import { NotaService } from '../services/nota.service';
+import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NotaService } from '../services/nota.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthInterceptorProvider,
+    ErrorInterceptorProvider,
     AuthService,
     StorageService,
     AlunoService,
