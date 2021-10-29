@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>lancar_notas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="lancar(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nota (0 a 10)*</ion-label>
+      <ion-input formControlName="valor" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.valor.dirty && formGroup.controls.valor.errors" margin-left>Valor inválido</p>
+    <ion-item>
+      <ion-label stacked>Aluno*</ion-label>
+      <ion-select formControlName="alunoId">
+        <ion-option *ngFor="let aluno of alunos; first as f" [value]="aluno.id" [selected]="f">{{aluno.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Disciplina*</ion-label>
+      <ion-select formControlName="disciplinaId">
+        <ion-option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{disciplina.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Lançar nota</button>
+  </form>
+</ion-content>

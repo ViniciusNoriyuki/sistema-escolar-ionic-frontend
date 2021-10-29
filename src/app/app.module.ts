@@ -13,6 +13,7 @@ import { AlunoService } from '../services/Aluno.service';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { ProfessorService } from '../services/professor.service';
 import { DisciplinaService } from '../services/disciplina.service';
+import { NotaService } from '../services/nota.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DisciplinaService } from '../services/disciplina.service';
     StorageService,
     AlunoService,
     ProfessorService,
-    DisciplinaService
+    DisciplinaService,
+    NotaService
   ]
 })
 export class AppModule {}

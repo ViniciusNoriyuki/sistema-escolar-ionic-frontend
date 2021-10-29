@@ -32,6 +32,7 @@ export class MyApp {
       { title: 'Cadastrar disciplina', component: 'CadastrarDisciplinaPage' },
       { title: 'Atribuir disciplina a professor', component: 'AtribuirDisciplinaProfessorPage' },
       { title: 'Atribuir disciplina a aluno', component: 'AtribuirDisciplinaAlunoPage' },
+      { title: 'Lançar notas', component: 'LancarNotasPage' },
       { title: 'Perfil', component: 'ProfileProfessorPage' },
       { title: 'Sair', component: '' }
     ];
