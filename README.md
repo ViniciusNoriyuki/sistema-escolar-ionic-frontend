@@ -1,6 +1,6 @@
 # Sistema-Escolar-FrontEnd
 
-Front-End desenvolvido em Ionic (versão 3), com utilização de JS, TS e Angular.
+Front-End desenvolvido em Ionic (versão 3), com utilização de JS, TS, HTML e Angular.
 
 Para o funcionamento do sistema é necessário relizar o clone deste repositório e seu backend (https://github.com/ViniciusNoriyuki/Sistema-Escolar).
 Também é necessário a instalação das seguintes ferramentas:
