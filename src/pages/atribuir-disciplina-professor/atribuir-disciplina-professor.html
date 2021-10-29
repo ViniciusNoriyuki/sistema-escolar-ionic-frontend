@@ -10,13 +10,13 @@
 <ion-content padding>
   <form [formGroup]="formGroup" (ngSubmit)="atribuir(); $event.preventDefault()">
     <ion-item>
-      <ion-label stacked>Professores*</ion-label>
+      <ion-label stacked>Professor*</ion-label>
       <ion-select formControlName="professorId">
         <ion-option *ngFor="let professor of professores; first as f" [value]="professor.id" [selected]="f">{{professor.nome}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Disciplinas*</ion-label>
+      <ion-label stacked>Disciplina*</ion-label>
       <ion-select formControlName="disciplinaId">
         <ion-option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{disciplina.nome}}</ion-option>
       </ion-select>
